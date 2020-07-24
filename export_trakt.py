@@ -86,7 +86,7 @@ def read_config(options):
                 print("Config file: {0}".format(_configfile))
         if os.path.exists(_configfile):
                 try:
-                        config = configparser.ConfigParser()
+                        config = configparser.ConfigParser(os.environ)
                         config.read(_configfile)
                         if config.has_option('TRAKT','CLIENT_ID') and len(config.get('TRAKT','CLIENT_ID')) != 0:
                                 _trakt['client_id'] = config.get('TRAKT','CLIENT_ID')
